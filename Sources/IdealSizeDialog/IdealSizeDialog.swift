@@ -12,7 +12,13 @@ public struct IdealSizeDialog: View {
     var onDismiss: () -> Void
     var onOkClicked: () -> Void
     
-    var body: some View {
+    public init(result: Size? = nil, onDismiss: @escaping () -> Void, onOkClicked: @escaping () -> Void) {
+        self.result = result
+        self.onDismiss = onDismiss
+        self.onOkClicked = onOkClicked
+    }
+    
+    public var body: some View {
         ZStack {
             if let result = result {
                 Output(size: result, onOkClicked: onOkClicked)
